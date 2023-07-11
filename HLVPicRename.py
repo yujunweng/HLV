@@ -11,17 +11,15 @@ def create_path(path):
 
 
 def get_file_name_type(fileName):
-	'''取得檔名與副檔名'''
-	nameAndTypes = fileName.split(".", fileName.count("."))
-	if len(nameAndTypes) > 1:
-		ftype = nameAndTypes[-1]
-		fname = ''
-		for i in range(len(nameAndTypes)-1):
-			fname += str(nameAndTypes[i])
-	else:
-		ftype = ''
-		fname = nameAndTypes[0]
-	return fname, ftype
+    """取得檔名與副檔名"""
+    eles = fileName.split('.')
+    if len(eles) > 1:
+        fName = '.'.join(eles[0:-1])
+        fType = eles[-1]        
+    else:
+        fName = eles[0]
+        fType = ''        
+    return fName, fType
 	
 	
 def get_qualify_files(readPath, fileTypes):
